@@ -35,6 +35,7 @@
         color: var(--slate-blue);
         background-color: var(--pure-white);
         word-break: keep-all;
+        overflow-x: hidden; /* 모바일 가로 스크롤 방지 */
       }
       a {
         text-decoration: none;
@@ -313,6 +314,57 @@
       .submit-btn:hover {
         background: var(--primary-blue);
         color: var(--deep-navy);
+      }
+
+      /* --- 모바일 최적화 미디어 쿼리 (반응형 코드) --- */
+      @media (max-width: 768px) {
+        header {
+          padding: 0 5%;
+        }
+        nav ul li {
+          margin-left: 15px;
+        }
+        nav ul li a {
+          font-size: 0.85rem;
+        }
+        .hero h1 {
+          font-size: 2.8rem;
+          letter-spacing: -1px;
+        }
+        .hero p {
+          font-size: 1rem;
+        }
+        section {
+          padding: 80px 5%;
+        }
+        h2 {
+          font-size: 1.8rem;
+        }
+        .services-grid {
+          grid-template-columns: 1fr;
+        }
+        .timeline::before {
+          left: 20px;
+        }
+        .time-container {
+          width: 100%;
+          text-align: left;
+          padding: 20px 0 20px 40px;
+        }
+        .time-container.right {
+          left: 0;
+        }
+        .time-container::after {
+          left: 15px;
+          right: auto;
+        }
+        .right::after {
+          left: 15px;
+        }
+        .contact-wrapper {
+          grid-template-columns: 1fr;
+          gap: 40px;
+        }
       }
     </style>
   </head>
