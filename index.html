@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Ground Corporation</title>
+    <title>Ground Corporation | 즐거운 유소년 축구 교육</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
@@ -35,14 +35,8 @@
         color: var(--slate-blue);
         background-color: var(--pure-white);
         word-break: keep-all;
-        overflow-x: hidden; /* 모바일 가로 스크롤 방지 */
+        overflow-x: hidden;
       }
-      a {
-        text-decoration: none;
-        color: inherit;
-        transition: 0.3s;
-      }
-
       header {
         display: flex;
         justify-content: space-between;
@@ -72,19 +66,11 @@
         font-weight: 700;
         color: var(--slate-blue);
       }
-      nav ul li a:hover {
-        color: var(--primary-blue);
-      }
-
       .hero {
         height: 90vh;
         background:
-          linear-gradient(
-            135deg,
-            rgba(10, 15, 30, 0.85),
-            rgba(10, 15, 30, 0.4)
-          ),
-          url("https://images.unsplash.com/photo-1574629810360-7efbbe195018?q=80&w=1600&auto=format&fit=crop");
+          linear-gradient(135deg, rgba(10, 15, 30, 0.8), rgba(10, 15, 30, 0.4)),
+          url("https://images.unsplash.com/photo-1510566337590-2fc1f21d0faa?q=80&w=1600&auto=format&fit=crop");
         background-size: cover;
         background-position: center;
         display: flex;
@@ -104,13 +90,6 @@
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
       }
-      .hero p {
-        font-size: 1.25rem;
-        font-weight: 300;
-        color: rgba(255, 255, 255, 0.8);
-        max-width: 700px;
-        margin-bottom: 40px;
-      }
       .btn {
         padding: 16px 40px;
         background: transparent;
@@ -120,12 +99,6 @@
         font-weight: 700;
         transition: 0.4s;
       }
-      .btn:hover {
-        background: var(--primary-blue);
-        color: var(--deep-navy);
-        box-shadow: 0 0 30px rgba(0, 212, 255, 0.4);
-      }
-
       section {
         padding: 140px 10%;
         text-align: center;
@@ -140,27 +113,8 @@
         color: var(--primary-blue);
         font-weight: 700;
         font-size: 1rem;
-        letter-spacing: 2px;
         margin-bottom: 60px;
         display: block;
-      }
-
-      #about {
-        background: var(--ice-white);
-      }
-      .about-content {
-        font-size: 1.15rem;
-        color: var(--text-gray);
-        max-width: 800px;
-        margin: 0 auto;
-      }
-
-      #services {
-        background: var(--deep-navy);
-        color: #fff;
-      }
-      #services h2 {
-        color: #fff;
       }
       .services-grid {
         display: grid;
@@ -173,27 +127,6 @@
         border: 1px solid rgba(255, 255, 255, 0.1);
         padding: 60px 40px;
         text-align: left;
-        transition: 0.4s;
-      }
-      .service-card:hover {
-        border-color: var(--primary-blue);
-        transform: translateY(-5px);
-      }
-      .service-icon {
-        color: var(--primary-blue);
-        font-size: 2.5rem;
-        margin-bottom: 30px;
-      }
-      .service-card h3 {
-        font-size: 1.5rem;
-        margin-bottom: 15px;
-      }
-
-      .timeline {
-        position: relative;
-        max-width: 900px;
-        margin: 0 auto;
-        padding-top: 40px;
       }
       .timeline::before {
         content: "";
@@ -216,27 +149,10 @@
         left: 50%;
         text-align: left;
       }
-      .time-container::after {
-        content: "";
-        position: absolute;
-        width: 10px;
-        height: 10px;
-        background: var(--primary-blue);
-        border-radius: 50%;
-        top: 40px;
-        right: -5px;
-        z-index: 1;
-      }
-      .right::after {
-        left: -5px;
-      }
-
       .contact-wrapper {
         display: grid;
         grid-template-columns: 1fr 1fr;
         gap: 80px;
-        max-width: 1100px;
-        margin: 0 auto;
         text-align: left;
       }
       .submit-btn {
@@ -247,76 +163,9 @@
         border: none;
         font-weight: 700;
         cursor: pointer;
-        transition: 0.3s;
-      }
-      .submit-btn:hover {
-        background: var(--primary-blue);
-        color: var(--deep-navy);
-      }
-      footer {
-        padding: 80px 10%;
-        background: #fff;
-        border-top: 1px solid #eee;
-        text-align: center;
-        font-size: 0.85rem;
-        color: var(--text-gray);
-      }
-      #contact {
-        background: var(--ice-white);
-        padding-bottom: 100px;
-      }
-      .contact-wrapper {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 80px;
-        max-width: 1100px;
-        margin: 0 auto;
-        text-align: left;
-      }
-      .contact-info h3 {
-        font-size: 2rem;
-        margin-bottom: 30px;
-      }
-      .contact-info p {
-        margin-bottom: 15px;
-        display: flex;
-        align-items: center;
-        gap: 15px;
-        color: var(--text-gray);
-      }
-      .contact-info i {
-        color: var(--primary-blue);
       }
 
-      .contact-form input,
-      .contact-form textarea {
-        width: 100%;
-        padding: 15px;
-        margin-bottom: 15px;
-        background: #fff;
-        border: 1px solid #e2e8f0;
-        border-radius: 2px;
-        outline: none;
-      }
-      .contact-form input:focus {
-        border-color: var(--primary-blue);
-      }
-      .submit-btn {
-        width: 100%;
-        padding: 18px;
-        background: var(--deep-navy);
-        color: #fff;
-        border: none;
-        font-weight: 700;
-        cursor: pointer;
-        transition: 0.3s;
-      }
-      .submit-btn:hover {
-        background: var(--primary-blue);
-        color: var(--deep-navy);
-      }
-
-      /* --- 모바일 최적화 미디어 쿼리 (반응형 코드) --- */
+      /* --- 모바일 최적화 미디어 쿼리 --- */
       @media (max-width: 768px) {
         header {
           padding: 0 5%;
@@ -324,21 +173,11 @@
         nav ul li {
           margin-left: 15px;
         }
-        nav ul li a {
-          font-size: 0.85rem;
-        }
         .hero h1 {
           font-size: 2.8rem;
-          letter-spacing: -1px;
-        }
-        .hero p {
-          font-size: 1rem;
         }
         section {
           padding: 80px 5%;
-        }
-        h2 {
-          font-size: 1.8rem;
         }
         .services-grid {
           grid-template-columns: 1fr;
@@ -354,13 +193,6 @@
         .time-container.right {
           left: 0;
         }
-        .time-container::after {
-          left: 15px;
-          right: auto;
-        }
-        .right::after {
-          left: 15px;
-        }
         .contact-wrapper {
           grid-template-columns: 1fr;
           gap: 40px;
@@ -370,71 +202,115 @@
   </head>
   <body>
     <header>
-      <a href="index.html" class="logo-container">
-        <img
+      <a href="index.html"
+        ><img
           src="resource/image/logo.png"
           alt="그라운드 코퍼레이션"
           class="logo-img"
-        />
-      </a>
+      /></a>
       <nav>
         <ul>
-          <li><a href="#about">기업 철학</a></li>
-          <li><a href="#services">핵심 전략</a></li>
-          <li><a href="#history">기록과 성과</a></li>
-          <li><a href="#contact">파트너십</a></li>
+          <li><a href="#about">교육 철학</a></li>
+          <li><a href="#services">프로그램</a></li>
+          <li><a href="#history">활동 기록</a></li>
+          <li><a href="#contact">문의하기</a></li>
         </ul>
       </nav>
     </header>
 
     <section class="hero">
       <h1>Ground Corporation</h1>
-      <p>[ 슬로건 ]</p>
-      <a href="#services" class="btn">Solution</a>
+      <p>축구로 배우는 즐거움, 함께 뛰며 자라는 아이들</p>
+      <a href="#services" class="btn">Play with Us</a>
     </section>
 
     <section id="about">
-      <span class="section-subtitle">기업 철학</span>
-      <h2>[ 기업 핵심 가치 제목 ]</h2>
-      <div class="about-content">[ 기업 철학 가치 설명 ]</div>
+      <span class="section-subtitle">교육 철학</span>
+      <h2>신나게 뛰고, 건강하게 성장합니다</h2>
+      <div class="about-content">
+        그라운드 코퍼레이션은 성적보다 '성장'을, 경쟁보다 '재미'를 소중히
+        여깁니다. 축구라는 건강한 놀이를 통해 아이들의 기초 체력을 기르고,
+        친구들과 소통하며 배려와 협동심을 자연스럽게 익히는 행복한 시간을
+        선물합니다.
+      </div>
     </section>
 
-    <section id="services">
+    <section id="services" style="background: var(--deep-navy); color: #fff">
       <span class="section-subtitle">핵심 전략</span>
-      <h2>[ 솔루션 제목 ]</h2>
+      <h2 style="color: #fff">아이 맞춤형 눈높이 클래스</h2>
       <div class="services-grid">
         <div class="service-card">
-          <i class="fas fa-eye service-icon"></i>
-          <h3>[ 솔루션 1 ]</h3>
-          <p>[ 솔루션 1에 대한 설명 ]</p>
+          <i
+            class="fas fa-heart service-icon"
+            style="
+              color: var(--primary-blue);
+              font-size: 2.5rem;
+              margin-bottom: 30px;
+            "
+          ></i>
+          <h3>Fun & Active</h3>
+          <p>
+            축구가 처음인 아이들도 거부감 없이 즐길 수 있도록 놀이 중심의
+            레크리에이션 프로그램을 진행합니다.
+          </p>
         </div>
         <div class="service-card">
-          <i class="fas fa-bolt service-icon"></i>
-          <h3>[ 솔루션 2 ]</h3>
-          <p>[ 솔루션 2에 대한 설명 ]</p>
+          <i
+            class="fas fa-users service-icon"
+            style="
+              color: var(--primary-blue);
+              font-size: 2.5rem;
+              margin-bottom: 30px;
+            "
+          ></i>
+          <h3>Social Growth</h3>
+          <p>
+            팀 활동을 통해 친구를 사귀고 소통하는 법을 배우며, 사회성과 정서적
+            안정을 높여줍니다.
+          </p>
         </div>
         <div class="service-card">
-          <i class="fas fa-trophy service-icon"></i>
-          <h3>[ 솔루션 3 ]</h3>
-          <p>[ 솔루션 3에 대한 설명 ]</p>
+          <i
+            class="fas fa-child service-icon"
+            style="
+              color: var(--primary-blue);
+              font-size: 2.5rem;
+              margin-bottom: 30px;
+            "
+          ></i>
+          <h3>Health Care</h3>
+          <p>
+            전신 운동인 축구를 통해 아이들의 신체 밸런스와 기초 체력을 튼튼하게
+            다져줍니다.
+          </p>
         </div>
       </div>
     </section>
 
     <section id="history">
-      <span class="section-subtitle">[ 제목 ]</span>
-      <h2>도전과 성장의 타임라인</h2>
-      <div class="timeline">
+      <span class="section-subtitle">우리의 발자취</span>
+      <h2>아이들과 함께 만든 소중한 추억</h2>
+      <div
+        class="timeline"
+        style="
+          position: relative;
+          max-width: 900px;
+          margin: 0 auto;
+          padding-top: 40px;
+        "
+      >
         <div class="time-container left">
           <div class="time-content">
             <h3>2026</h3>
-            <p>[ 해당 연도 주요 성과 ]</p>
+            <p>
+              주말 취미반 확대 및 가족과 함께하는 '그라운드 패밀리 데이' 개최
+            </p>
           </div>
         </div>
         <div class="time-container right">
           <div class="time-content">
             <h3>2025</h3>
-            <p>[ 해당 연도 주요 성과 ]</p>
+            <p>지역 내 방과 후 축구 교실 파트너십 체결 및 교육 커리큘럼 완성</p>
           </div>
         </div>
       </div>
@@ -444,21 +320,57 @@
       <span class="section-subtitle">문의하기</span>
       <div class="contact-wrapper">
         <div class="contact-info">
-          <h3>문의</h3>
+          <h3>입단 상담</h3>
           <p>
-            <i class="fas fa-map-marker-alt"></i> 경기 시흥시 서울대학로278번길
-            61
+            <i
+              class="fas fa-map-marker-alt"
+              style="color: var(--primary-blue)"
+            ></i>
+            경기 시흥시 서울대학로278번길 61
           </p>
-          <p><i class="fas fa-phone"></i> 02-1234-5678</p>
-          <p><i class="fas fa-envelope"></i> ground@groundcorp.com</p>
+          <p>
+            <i class="fas fa-phone" style="color: var(--primary-blue)"></i>
+            02-1234-5678
+          </p>
+          <p>
+            <i class="fas fa-envelope" style="color: var(--primary-blue)"></i>
+            play@groundcorp.com
+          </p>
         </div>
         <div class="contact-form">
           <form>
-            <input type="text" placeholder="성함" />
-            <input type="email" placeholder="이메일 주소" />
+            <input
+              type="text"
+              placeholder="성함"
+              style="
+                width: 100%;
+                padding: 15px;
+                margin-bottom: 15px;
+                border: 1px solid #e2e8f0;
+                outline: none;
+              "
+            />
+            <input
+              type="email"
+              placeholder="이메일 주소"
+              style="
+                width: 100%;
+                padding: 15px;
+                margin-bottom: 15px;
+                border: 1px solid #e2e8f0;
+                outline: none;
+              "
+            />
             <textarea
               rows="5"
-              placeholder="문의 내용을 입력해 주세요."
+              placeholder="문의 내용을 작성해주세요."
+              style="
+                width: 100%;
+                padding: 15px;
+                margin-bottom: 15px;
+                border: 1px solid #e2e8f0;
+                outline: none;
+              "
             ></textarea>
             <button type="submit" class="submit-btn">상담 요청하기</button>
           </form>
@@ -466,7 +378,15 @@
       </div>
     </section>
 
-    <footer>
+    <footer
+      style="
+        padding: 80px 10%;
+        text-align: center;
+        color: var(--text-gray);
+        font-size: 0.85rem;
+        border-top: 1px solid #eee;
+      "
+    >
       <p>&copy; 2026 GROUND CORPORATION. All Rights Reserved.</p>
     </footer>
   </body>
