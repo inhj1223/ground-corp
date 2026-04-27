@@ -2,7 +2,10 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
+    />
     <title>Booking | 영종 브랜치 예약</title>
     <link
       rel="stylesheet"
@@ -11,10 +14,10 @@
     <style>
       /* --- 영종도 로고 기반 컬러 시스템 --- */
       :root {
-        --brand-green: #2d6a4f; /* 로고의 메인 그린 */
-        --point-green: #52b788; /* 로고의 밝은 포인트 그린 */
-        --mint-light: #f0f7f4; /* 배경용 연한 민트 화이트 */
-        --deep-black: #1b4332; /* 텍스트용 */
+        --brand-green: #2d6a4f;
+        --point-green: #52b788;
+        --mint-light: #f0f7f4;
+        --deep-black: #1b4332;
         --pure-white: #ffffff;
         --transition: all 0.3s ease;
       }
@@ -25,53 +28,61 @@
         box-sizing: border-box;
       }
       body {
-        font-family: "Pretendard", sans-serif;
+        font-family:
+          "Pretendard",
+          -apple-system,
+          BlinkMacSystemFont,
+          system-ui,
+          Roboto,
+          sans-serif;
         background: var(--mint-light);
         color: var(--deep-black);
         line-height: 1.6;
+        word-break: keep-all; /* 한글 줄바꿈 최적화 */
       }
 
       header {
-        height: 80px;
+        height: 70px;
         display: flex;
         justify-content: space-between;
         align-items: center;
         padding: 0 5%;
         background: #fff;
         box-shadow: 0 2px 15px rgba(0, 0, 0, 0.05);
+        position: sticky;
+        top: 0;
+        z-index: 1000;
       }
       .logo-img {
-        height: 45px;
+        height: clamp(35px, 5vw, 45px);
       }
-
       .back-link {
         text-decoration: none;
         color: var(--brand-green);
         font-weight: 700;
+        font-size: 0.9rem;
         transition: var(--transition);
-      }
-      .back-link:hover {
-        opacity: 0.7;
       }
 
       section {
-        padding: 80px 10%;
+        padding: 40px 5%;
         max-width: 1400px;
         margin: 0 auto;
       }
 
+      /* 예약 컨테이너 - 기본 1열, PC에서 2열 */
       .booking-container {
         display: grid;
-        grid-template-columns: 1.2fr 1fr;
-        gap: 40px;
-        margin-top: 40px;
+        grid-template-columns: 1fr;
+        gap: 30px;
+        margin-top: 30px;
       }
 
       .card {
         background: #fff;
-        padding: 40px;
-        border-radius: 30px;
-        box-shadow: 0 20px 40px rgba(45, 106, 79, 0.08);
+        padding: clamp(20px, 5vw, 40px);
+        border-radius: 25px;
+        box-shadow: 0 15px 35px rgba(45, 106, 79, 0.08);
       }
 
       /* 캘린더 스타일 */
@@ -79,7 +90,7 @@
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 30px;
+        margin-bottom: 25px;
       }
       .calendar-table {
         width: 100%;
@@ -87,14 +98,16 @@
         text-align: center;
       }
       .calendar-table th {
-        padding: 10px;
+        padding: 10px 0;
         color: #999;
         font-weight: 500;
+        font-size: 0.85rem;
       }
       .calendar-table td {
-        padding: 15px;
-        border-radius: 15px;
+        padding: clamp(10px, 3vw, 15px);
+        border-radius: 12px;
         cursor: pointer;
+        font-size: 0.95rem;
         transition: var(--transition);
       }
       .calendar-table td:hover:not(.empty) {
@@ -108,89 +121,108 @@
       }
 
       /* 프로그램 리스트 */
-      .program-list h3 {
-        margin-bottom: 25px;
-        font-size: 1.5rem;
+      .program-list {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
       }
       .program-item {
         background: #fff;
         border: 1px solid #edf2f0;
-        padding: 25px;
+        padding: 20px;
         border-radius: 20px;
-        margin-bottom: 15px;
         display: flex;
-        justify-content: space-between;
-        align-items: center;
+        flex-direction: column; /* 모바일 기본 세로 */
+        gap: 15px;
         transition: var(--transition);
       }
-      .program-item:hover {
-        border-color: var(--point-green);
-        transform: translateX(8px);
-      }
       .program-info h4 {
-        font-size: 1.2rem;
+        font-size: 1.1rem;
         color: var(--brand-green);
         margin-bottom: 5px;
       }
       .program-info p {
-        font-size: 0.9rem;
+        font-size: 0.85rem;
         color: #666;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
       }
 
       .btn-apply {
         background: var(--brand-green);
         color: #fff;
         border: none;
-        padding: 12px 25px;
+        padding: 12px;
         border-radius: 12px;
         font-weight: 700;
         cursor: pointer;
+        width: 100%; /* 모바일에서 클릭하기 쉽게 전체 너비 */
         transition: var(--transition);
-      }
-      .btn-apply:hover {
-        background: var(--point-green);
       }
 
       /* 오시는 길 */
       .location-section {
-        margin-top: 60px;
+        margin-top: 50px;
       }
       .location-grid {
         display: grid;
-        grid-template-columns: 1.5fr 1fr;
-        gap: 30px;
+        grid-template-columns: 1fr;
+        gap: 20px;
       }
       .map-area {
-        height: 400px;
+        height: 250px;
+        border-radius: 20px;
         background: #e0e0e0;
-        border-radius: 25px;
         overflow: hidden;
-        background: url("https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?q=80&w=1000")
-          center/cover;
       }
       .info-card {
         background: var(--brand-green);
         color: #fff;
-        padding: 40px;
-        border-radius: 25px;
+        padding: 30px;
+        border-radius: 20px;
       }
       .info-group {
-        margin-bottom: 25px;
+        margin-bottom: 20px;
       }
       .info-group h5 {
         color: var(--point-green);
-        font-size: 0.8rem;
+        font-size: 0.75rem;
         letter-spacing: 1px;
-        margin-bottom: 8px;
+        margin-bottom: 5px;
+      }
+      .info-group p {
+        font-size: 0.95rem;
+        line-height: 1.5;
       }
 
-      @media (max-width: 992px) {
-        .booking-container,
-        .location-grid {
-          grid-template-columns: 1fr;
-        }
+      /* --- 데스크탑 환경 (992px 이상) --- */
+      @media (min-width: 992px) {
         section {
-          padding: 60px 5%;
+          padding: 60px 10%;
+        }
+        .booking-container {
+          grid-template-columns: 1.2fr 1fr;
+          gap: 40px;
+        }
+        .program-item {
+          flex-direction: row;
+          justify-content: space-between;
+          padding: 25px;
+        }
+        .btn-apply {
+          width: auto;
+          padding: 12px 30px;
+        }
+        .location-grid {
+          grid-template-columns: 1.5fr 1fr;
+          gap: 30px;
+        }
+        .map-area {
+          height: 400px;
+        }
+        .info-card {
+          padding: 40px;
         }
       }
     </style>
@@ -198,7 +230,10 @@
   <body>
     <header>
       <a href="index.html"
-        ><img src="image_d819b3.jpg" alt="영종 브랜치 로고" class="logo-img"
+        ><img
+          src="resource/image/logo.png"
+          alt="영종 브랜치 로고"
+          class="logo-img"
       /></a>
       <a href="index.html" class="back-link"
         ><i class="fas fa-times"></i> 예약 취소</a
@@ -206,16 +241,23 @@
     </header>
 
     <section>
-      <div style="margin-bottom: 40px">
+      <div style="margin-bottom: 30px">
         <span
           style="
             color: var(--point-green);
             font-weight: 800;
             letter-spacing: 1px;
+            font-size: 0.8rem;
           "
           >RESERVATION</span
         >
-        <h2 style="font-size: 2.8rem; font-weight: 900">
+        <h2
+          style="
+            font-size: clamp(1.8rem, 5vw, 2.8rem);
+            font-weight: 900;
+            margin-top: 5px;
+          "
+        >
           영종 브랜치 수업 신청
         </h2>
       </div>
@@ -223,9 +265,9 @@
       <div class="booking-container">
         <div class="card">
           <div class="calendar-header">
-            <h3>2026년 5월</h3>
+            <h3 style="font-size: 1.2rem">2026년 5월</h3>
             <div style="color: var(--brand-green); cursor: pointer">
-              <i class="fas fa-chevron-left"></i> &nbsp;
+              <i class="fas fa-chevron-left"></i> &nbsp;&nbsp;
               <i class="fas fa-chevron-right"></i>
             </div>
           </div>
@@ -287,44 +329,52 @@
             <div class="program-info">
               <h4>[영종] 토요 얼리버드반</h4>
               <p>
-                <i class="far fa-clock"></i> 10:00 - 11:30 &nbsp;
-                <i class="fas fa-user"></i> 5세~7세
+                <span><i class="far fa-clock"></i> 10:00 - 11:30</span>
+                <span><i class="fas fa-user"></i> 5세~7세</span>
               </p>
             </div>
             <button class="btn-apply">신청</button>
           </div>
+
           <div class="program-item">
             <div class="program-info">
               <h4>[영종] 유소년 스킬업</h4>
               <p>
-                <i class="far fa-clock"></i> 14:00 - 15:30 &nbsp;
-                <i class="fas fa-user"></i> 초등 저학년
+                <span><i class="far fa-clock"></i> 14:00 - 15:30</span>
+                <span><i class="fas fa-user"></i> 초등 저학년</span>
               </p>
             </div>
             <button class="btn-apply">신청</button>
           </div>
+
           <div class="program-item">
             <div class="program-info">
               <h4>[영종] 1:1 개인 레슨</h4>
               <p>
-                <i class="far fa-clock"></i> 시간 협의 &nbsp;
-                <i class="fas fa-user"></i> 전 연령
+                <span><i class="far fa-clock"></i> 시간 협의</span>
+                <span><i class="fas fa-user"></i> 전 연령</span>
               </p>
             </div>
-            <button class="btn-apply">상담</button>
+            <button class="btn-apply" style="background: var(--deep-black)">
+              상담
+            </button>
           </div>
         </div>
       </div>
 
       <div class="location-section">
         <div class="location-grid">
-          <div class="map-area"></div>
+          <div
+            class="map-area"
+            style="
+              background: url(&quot;https://images.unsplash.com/photo-1526778548025-fa2f459cd5c1?q=80&w=1000&quot;)
+                center/cover;
+            "
+          ></div>
           <div class="info-card">
             <div class="info-group">
               <h5>ADDRESS</h5>
-              <p style="font-size: 1.1rem">
-                인천광역시 중구 영종대로 123<br />풋볼 그라운드 영종센터
-              </p>
+              <p>인천광역시 중구 영종대로 123<br />풋볼 그라운드 영종센터</p>
             </div>
             <div class="info-group">
               <h5>PARKING</h5>
@@ -341,10 +391,12 @@
 
     <footer
       style="
-        padding: 60px 5%;
+        padding: 40px 5%;
         text-align: center;
         color: #888;
-        font-size: 0.9rem;
+        font-size: 0.8rem;
+        background: #fff;
+        margin-top: 20px;
       "
     >
       <p>&copy; 2026 GROUND CORPORATION YEONGJONG. ALL RIGHTS RESERVED.</p>
